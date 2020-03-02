@@ -20,9 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        
         <provider
-            android:name="com.github.filter.provider.FilterFileProvider"
+            android:name=".provider.FilterFileProvider"
             android:authorities="com.github.filter.filter_file_provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -38,8 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

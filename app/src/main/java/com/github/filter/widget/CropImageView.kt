@@ -27,5 +27,8 @@ class CropImageView @JvmOverloads constructor(
     }
 
 
+    private fun initImage(){
+
+    }
 
 }
