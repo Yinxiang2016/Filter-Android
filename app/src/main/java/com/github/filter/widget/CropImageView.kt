@@ -137,4 +137,27 @@ class CropImageView : AppCompatImageView {
             it.draw(canvas)
         }
     }
+
+    /**
+     * 四周，四条线
+     */
+    fun drawOutside(canvas: Canvas) {
+        val paint = Paint()
+
+        paint.setARGB(125, 50, 50, 50)
+        paint.style = Paint.Style.STROKE
+        paint.isAntiAlias = true
+
+        canvas.drawLine(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), paint)
+        canvas.drawLine(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), paint)
+    }
+
+    /**
+     * 四个角
+     */
+    fun drawFourCorners(canvas: Canvas) {
+
+    }
+
+
 }
