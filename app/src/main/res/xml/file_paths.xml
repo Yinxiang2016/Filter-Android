@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <paths>
-        <root-path
-            name="root"
-            path="" />
-        <external-path
-            name="camera_photos"
-            path="" />
-    </paths>
-</resources>
+<paths>
+    <external-path
+        name="my_images"
+        path="Android/data/com.github.filter/files/Pictures" />
+</paths>
