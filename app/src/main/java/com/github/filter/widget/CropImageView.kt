@@ -159,5 +159,18 @@ class CropImageView : AppCompatImageView {
 
     }
 
+    fun move() {
+    }
 
+    fun scale(){
+
+    }
+
+    fun crop(){
+
+    }
+
+    fun pre(){
+
+    }
 }
