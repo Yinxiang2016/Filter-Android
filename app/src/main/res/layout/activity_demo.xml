@@ -27,7 +27,7 @@
         app:layout_constraintStart_toEndOf="@+id/button_take_photo"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.github.filter.widget.ZoomImageView
         android:id="@+id/imageView"
         android:layout_width="500dp"
         android:layout_height="500dp"
