@@ -2,6 +2,7 @@ package com.github.filter.widget
 
 import android.content.Context
 import android.graphics.Matrix
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
@@ -26,7 +27,7 @@ class ZoomImageView : AppCompatImageView, View.OnTouchListener,
      */
     private lateinit var scaleGestureDetector: ScaleGestureDetector
 
-    var scaleMatrix: Matrix = Matrix()
+    private var mScaleMatrix: Matrix = Matrix()
 
     /**
      * 最大放大倍数
@@ -109,8 +110,8 @@ class ZoomImageView : AppCompatImageView, View.OnTouchListener,
         if (drawable == null) {
             return true
         }
-        scaleMatrix.postScale(scaleFactor, scaleFactor, width / 2f, height / 2f);
-        imageMatrix = scaleMatrix
+        mScaleMatrix.postScale(scaleFactor, scaleFactor, width / 2f, height / 2f);
+        imageMatrix = mScaleMatrix
         return true
     }
 
@@ -153,10 +154,23 @@ class ZoomImageView : AppCompatImageView, View.OnTouchListener,
         }
 
         //将图片移动至屏幕中心
-        scaleMatrix.postTranslate((width - imgWidth) / 2f, (height - imgHeight) / 2f)
-        scaleMatrix.postScale(scale, scale, width / 2f, height / 2f)
-        imageMatrix = scaleMatrix
+        mScaleMatrix.postTranslate((width - imgWidth) / 2f, (height - imgHeight) / 2f)
+        mScaleMatrix.postScale(scale, scale, width / 2f, height / 2f)
+        imageMatrix = mScaleMatrix
         once = false
     }
 
+    /**
+     * 根据当前图片的Matrix获得图片的范围
+     *
+     */
+    private fun getMatrixRectF(): RectF {
+        val matrix = mScaleMatrix;
+        val rectF = RectF()
+        if (drawable != null) {
+            rectF.set(0f, 0f, drawable.intrinsicWidth.toFloat(), drawable.intrinsicHeight.toFloat())
+            matrix.mapRect(rectF)
+        }
+        return rectF
+    }
 }
