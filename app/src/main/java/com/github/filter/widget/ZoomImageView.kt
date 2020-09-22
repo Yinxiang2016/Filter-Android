@@ -242,12 +242,12 @@ class ZoomImageView : AppCompatImageView, View.OnTouchListener,
 
     /**
      * 是否是推动行为
+     * mTouchSlop 100
      *
      * @param dx
      * @param dy
      */
     private fun isCanDrag(dx: Float, dy: Float): Boolean {
-        val mTouchSlop = 0
         return sqrt(((dx * dx) + (dy * dy)).toDouble()) >= mTouchSlop;
 
     }
